@@ -1,163 +1,145 @@
-/* ANIMATIONS (Hiệu ứng) */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Giao diện Luxury DMX: Nền đen, Viền xám, Chữ Trắng/Vàng Gold */
+.page { 
+  background-color: #050505; 
+  color: #fff; 
+  min-height: 100vh; 
+  font-family: Arial, sans-serif; 
 }
-@keyframes pulseGlow {
-  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
-  70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-}
-@keyframes bounceMouse {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(10px); }
-  60% { transform: translateY(5px); }
+.mainContainer { 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 120px 20px 60px; /* Thụt xuống để né Header */
 }
 
-.page { background-color: #000; color: #fff; min-height: 100vh; overflow-x: hidden; }
+/* LỖI 404 */
+.notFound { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; }
+.notFound a { border: 1px solid #fff; padding: 12px 24px; color: #fff; text-decoration: none; border-radius: 4px; transition: 0.3s; }
+.notFound a:hover { background: #fff; color: #000; }
 
-/* 1. CINEMATIC HERO */
-.productHero {
-  height: 100vh; width: 100%;
-  background-size: cover; background-position: center;
-  background-attachment: fixed; /* Parallax */
-  display: flex; align-items: center; justify-content: center; position: relative;
+/* BREADCRUMB (Đường dẫn) */
+.breadcrumb { 
+  display: flex; 
+  gap: 8px; 
+  font-size: 14px; 
+  margin-bottom: 24px; 
+  color: #666; 
 }
-.heroOverlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.9) 100%);
-  z-index: 1;
-}
-.heroContent {
-  position: relative; z-index: 2; text-align: center; margin-top: 80px;
-}
-.heroEyebrow {
-  font-size: 14px; letter-spacing: 10px; color: #888; margin-bottom: 20px;
-  animation: fadeInUp 1s ease-out forwards;
-}
-.carName {
-  font-size: 10vw; font-weight: 300; letter-spacing: 12px; margin: 0; line-height: 1;
-  background: linear-gradient(180deg, #FFFFFF 0%, #777777 100%); /* Màu chữ kim loại */
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  animation: fadeInUp 1s ease-out 0.2s forwards; opacity: 0; text-transform: uppercase;
-}
-.heroSubtitle {
-  font-size: 16px; letter-spacing: 12px; color: #aaa; margin-top: 30px;
-  animation: fadeInUp 1s ease-out 0.4s forwards; opacity: 0;
-}
-.scrollIndicator {
-  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
-  z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 10px;
-  animation: fadeInUp 1s ease-out 0.8s forwards; opacity: 0;
-}
-.scrollIndicator span { font-size: 10px; letter-spacing: 4px; color: #888; }
-.mouse {
-  width: 24px; height: 36px; border: 2px solid #888; border-radius: 12px; position: relative;
-}
-.mouse::before {
-  content: ''; position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
-  width: 4px; height: 8px; background: #fff; border-radius: 2px;
-  animation: bounceMouse 2s infinite;
-}
+.breadcrumb a { color: #aaa; text-decoration: none; transition: 0.2s;}
+.breadcrumb a:hover { color: #d4af37; } /* Màu vàng Luxury */
+.current { color: #fff; }
 
-/* 2. AEROSPACE DASHBOARD */
-.dashboardSection { background-color: #030303; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; }
-.dashboardGrid { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 1600px; margin: 0 auto; }
-.dashItem {
-  padding: 60px 40px; border-right: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a;
-  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
-  transition: background-color 0.4s ease;
-}
-.dashItem:hover { background-color: #0a0a0a; }
-.dashItem:nth-child(3n) { border-right: none; }
-.dashItem:nth-last-child(-n+3) { border-bottom: none; } /* Bỏ viền dưới hàng cuối */
+/* TOP SECTION: ẢNH & CHỐT ĐƠN */
+.productTop { display: flex; gap: 40px; margin-bottom: 60px; }
 
-.dashValue {
-  font-size: 56px; font-weight: 200; letter-spacing: 2px; line-height: 1; margin-bottom: 10px;
-  background: linear-gradient(90deg, #fff, #888); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+/* Box Ảnh */
+.imageGallery { 
+  flex: 6; 
+  background: #0a0a0a; 
+  border-radius: 8px; 
+  border: 1px solid #222; 
+  overflow: hidden; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 20px;
 }
-.dashValue small { font-size: 18px; letter-spacing: 4px; color: #555; margin-left: 8px; -webkit-text-fill-color: #555; }
-.dashText { font-size: 24px; font-weight: 300; letter-spacing: 2px; color: #ddd; margin-bottom: 20px; text-transform: uppercase; }
-.dashLabel { font-size: 11px; letter-spacing: 4px; color: #666; font-weight: 600; }
+.imageGallery img { width: 100%; height: auto; object-fit: contain; }
 
-/* 3. STICKY STORYTELLING (Siêu phẩm Apple style) */
-.stickySection { display: flex; align-items: flex-start; position: relative; background: #000; }
-.stickyImageContainer {
-  position: sticky; top: 0; height: 100vh; width: 50%; overflow: hidden;
-}
-.stickyImg { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8); }
-.imageVignette {
-  position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,0) 0%, #000 100%);
-}
-.scrollingContent { width: 50%; padding: 100px 80px 200px 80px; }
-.storyBlock { margin-bottom: 150px; position: relative; }
-.lineIndicator { width: 40px; height: 2px; background: #fff; margin-bottom: 30px; }
-.storyBlock h2 { font-size: 40px; font-weight: 300; letter-spacing: 4px; margin-bottom: 24px; color: #fff; }
-.storyBlock p { font-size: 18px; line-height: 1.8; color: #aaa; font-weight: 300; }
+/* Box Thông tin bên phải */
+.productInfo { flex: 4; display: flex; flex-direction: column; }
+.carName { font-size: 28px; font-weight: 600; margin: 0 0 16px; text-transform: uppercase; letter-spacing: 2px;}
 
-/* 4. VIP RESERVATION GLASS CARD */
-.vipSection {
-  position: relative; padding: 150px 20px; display: flex; justify-content: center; align-items: center; min-height: 80vh;
-}
-.vipBackground {
-  position: absolute; inset: 0; background-size: cover; background-position: center; filter: blur(20px) brightness(0.3); z-index: 1;
-}
-.glassCard {
-  position: relative; z-index: 2; width: 100%; max-width: 600px; padding: 60px;
-  background: rgba(20, 20, 20, 0.4);
-  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); /* Kính mờ siêu cấp */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.8);
-  text-align: center; border-radius: 2px;
-}
-.glassTitle { font-size: 12px; letter-spacing: 6px; color: #888; margin-bottom: 20px; }
-.glassCarName { font-size: 36px; letter-spacing: 8px; margin-bottom: 10px; font-weight: 300; }
-.glassPrice { font-size: 24px; color: #ddd; letter-spacing: 4px; margin-bottom: 40px; }
-.glassRemain { margin-bottom: 40px; font-size: 11px; letter-spacing: 2px; font-weight: 600; }
-.statusOn { color: #fff; padding: 6px 16px; border: 1px solid #fff; border-radius: 20px; }
-.statusOff { color: #ff3b30; padding: 6px 16px; border: 1px solid #ff3b30; border-radius: 20px; }
+.priceRow { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.price { font-size: 36px; color: #d4af37; font-weight: bold; } /* Giá Vàng Gold */
+.badgeRemain { padding: 4px 12px; background: rgba(212, 175, 55, 0.1); border: 1px solid #d4af37; color: #d4af37; border-radius: 4px; font-size: 12px; font-weight: bold;}
+.badgeSold { padding: 4px 12px; background: rgba(255, 59, 48, 0.1); border: 1px solid #ff3b30; color: #ff3b30; border-radius: 4px; font-size: 12px; font-weight: bold;}
 
-.vipBtn {
-  width: 100%; padding: 20px; background: #fff; color: #000; font-size: 12px; font-weight: 600;
-  letter-spacing: 4px; border: none; cursor: pointer; transition: all 0.4s ease; margin-bottom: 20px;
-}
-.vipBtn:hover:not(:disabled) { background: #ccc; transform: translateY(-2px); }
-.vipBtn:disabled { background: rgba(255,255,255,0.1); color: #666; cursor: not-allowed; }
-.vipNote { font-size: 10px; color: #666; letter-spacing: 1px; }
+/* Box Khuyến Mãi y hệt DMX */
+.promoBox { border: 1px solid #333; border-radius: 8px; margin-bottom: 24px; overflow: hidden; background: #0a0a0a;}
+.promoHeader { background: linear-gradient(90deg, #1a1a1a 0%, #000 100%); padding: 12px 16px; font-weight: bold; font-size: 14px; border-bottom: 1px solid #333; color: #d4af37; text-transform: uppercase;}
+.promoList { list-style: none; padding: 16px; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.promoList li { position: relative; padding-left: 20px; font-size: 13px; color: #ccc; line-height: 1.5; }
+.promoList li::before { content: '✓'; position: absolute; left: 0; top: 0; color: #d4af37; font-weight: bold;}
 
-/* 404 NOT FOUND GLASS */
-.notFoundGlass {
-  background: rgba(255,255,255,0.05); padding: 80px; backdrop-filter: blur(10px); border: 1px solid #333; text-align: center;
+/* NÚT MUA HÀNG THẦN THÁNH */
+.buyBtn { 
+  background: linear-gradient(180deg, #d4af37 0%, #aa7700 100%); 
+  border: none; 
+  border-radius: 8px; 
+  padding: 16px; 
+  color: #fff; 
+  cursor: pointer; 
+  text-align: center; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 6px; 
+  transition: opacity 0.3s; 
+  margin-bottom: 12px; 
 }
-.notFoundGlass h1 { font-size: 100px; margin: 0; letter-spacing: 10px; }
-.notFoundGlass p { font-size: 16px; letter-spacing: 8px; color: #aaa; margin: 20px 0 40px 0; }
-.notFoundGlass a { color: #fff; text-decoration: none; border: 1px solid #fff; padding: 15px 30px; letter-spacing: 3px; font-size: 12px; transition: 0.3s; }
-.notFoundGlass a:hover { background: #fff; color: #000; }
+.buyBtn:hover:not(:disabled) { opacity: 0.85; }
+.buyBtn:disabled { background: #222; color: #555; cursor: not-allowed; }
+.buyBtn strong { font-size: 20px; text-transform: uppercase; letter-spacing: 1px; }
+.buyBtn span { font-size: 13px; font-weight: 300; }
+
+/* Nút Trả góp */
+.installmentRow { display: flex; gap: 12px; margin-bottom: 24px; }
+.installBtn {
+  flex: 1; background: #111; border: 1px solid #333; border-radius: 8px; padding: 12px; color: #fff; cursor: pointer; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; transition: 0.3s;
+}
+.installBtn:hover { border-color: #d4af37; }
+.installBtn strong { font-size: 12px; color: #d4af37; }
+.installBtn span { font-size: 11px; color: #888; }
+
+/* Thông tin tổng đài */
+.supportInfo { font-size: 13px; color: #888; border-top: 1px solid #222; padding-top: 16px; display: flex; flex-direction: column; gap: 10px;}
+.supportInfo strong { color: #fff; }
+
+
+/* BOTTOM SECTION: BÀI VIẾT & THÔNG SỐ */
+.productBottom { display: flex; gap: 40px; }
+
+/* Bài viết */
+.articleSection { flex: 6; }
+.articleSection h2 { font-size: 22px; margin-bottom: 20px; font-weight: 500; }
+.articleSection p { font-size: 15px; color: #aaa; line-height: 1.8; margin-bottom: 20px; }
+.articleImg { width: 100%; border-radius: 8px; margin-bottom: 20px; border: 1px solid #222;}
+.articleSection h3 { font-size: 18px; margin: 24px 0 16px; color: #ddd; }
+.readMoreBtn { width: 100%; background: transparent; border: 1px solid #333; color: #d4af37; padding: 12px; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+.readMoreBtn:hover { background: #111; }
+
+/* Bảng Thông số kỹ thuật (Cực chuẩn DMX) */
+.specsSection { flex: 4; }
+.specsSection h2 { font-size: 22px; margin-bottom: 20px; font-weight: 500; }
+.specsList { 
+  list-style: none; padding: 0; margin: 0; 
+  border: 1px solid #222; border-radius: 8px; overflow: hidden; 
+}
+.specsList li { display: flex; padding: 16px; font-size: 14px; border-bottom: 1px solid #222; }
+.specsList li:last-child { border-bottom: none; }
+.specsList li:nth-child(odd) { background-color: #0a0a0a; } /* Sọc Zebra đậm */
+.specsList li:nth-child(even) { background-color: #111; }    /* Sọc Zebra nhạt */
+.specsList span { flex: 4; color: #888; }
+.specsList strong { flex: 6; color: #fff; text-align: right; font-weight: normal;}
+
+.viewMoreSpecs { 
+  width: 100%; padding: 14px; background: transparent; border: 1px solid #d4af37; 
+  color: #d4af37; border-radius: 8px; margin-top: 16px; cursor: pointer; transition: 0.3s; font-weight: bold;
+}
+.viewMoreSpecs:hover { background: #d4af37; color: #000; }
 
 
 /* RESPONSIVE */
-@media (max-width: 1200px) {
-  .dashboardGrid { grid-template-columns: repeat(2, 1fr); }
-  .dashItem:nth-child(2n) { border-right: none; }
-  .dashItem:nth-child(3n) { border-right: 1px solid #1a1a1a; }
-  .dashItem:nth-last-child(-n+3) { border-bottom: 1px solid #1a1a1a; }
-  .dashItem:nth-last-child(-n+2) { border-bottom: none; }
+@media(max-width: 900px) {
+  .productTop, .productBottom { flex-direction: column; }
+  .imageGallery { padding: 40px 20px; }
+  .carName { font-size: 24px; }
+  .price { font-size: 28px; }
 }
 
-@media (max-width: 900px) {
-  .stickySection { flex-direction: column; }
-  .stickyImageContainer { position: relative; height: 50vh; width: 100%; }
-  .imageVignette { background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000 100%); }
-  .scrollingContent { width: 100%; padding: 60px 40px; }
-  .storyBlock { margin-bottom: 80px; }
-}
-
-@media (max-width: 600px) {
-  .carName { font-size: 40px; letter-spacing: 6px; }
-  .dashboardGrid { grid-template-columns: 1fr; }
-  .dashItem { border-right: none !important; border-bottom: 1px solid #1a1a1a !important; padding: 40px 20px; }
-  .dashItem:last-child { border-bottom: none !important; }
-  .dashValue { font-size: 40px; }
-  .glassCard { padding: 40px 20px; }
-  .glassCarName { font-size: 28px; }
+@media(max-width: 600px) {
+  .installmentRow { flex-direction: column; }
+  .specsList li { flex-direction: column; gap: 8px; }
+  .specsList strong { text-align: left; color: #d4af37; }
 }
