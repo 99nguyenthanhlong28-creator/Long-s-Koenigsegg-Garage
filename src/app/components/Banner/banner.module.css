@@ -1,0 +1,23 @@
+.hero {
+    height: 100vh; width: 100%;
+    background-image: url('/hinh/KOENIGSEGG_JESKO_ABSOLUT.jpg'); 
+    background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; position: relative;
+  }
+  .heroOverlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.6); z-index: 1; }
+  .heroContent { position: relative; z-index: 2; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 0 20px; }
+  .heroTitle { font-size: 8vw; font-weight: 300; letter-spacing: 12px; margin: 0; text-transform: uppercase; color: var(--text-main); }
+  .heroSubtitle { font-size: 16px; letter-spacing: 5px; color: #cccccc; margin-bottom: 20px; text-transform: uppercase; }
+  .ctas { display: flex; gap: 20px; }
+  .primaryBtn, .secondaryBtn { padding: 16px 48px; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; border: 1px solid var(--text-main); font-family: inherit; }
+  .primaryBtn { background-color: var(--text-main); color: var(--bg-dark); }
+  .primaryBtn:hover { background-color: transparent; color: var(--text-main); }
+  .secondaryBtn { background-color: transparent; color: var(--text-main); }
+  .secondaryBtn:hover { background-color: var(--text-main); color: var(--bg-dark); }
+  
+  @media (max-width: 1024px) { .heroTitle { font-size: 64px; } }
+  @media (max-width: 768px) {
+    .heroTitle { font-size: 40px; letter-spacing: 6px; }
+    .heroSubtitle { font-size: 12px; text-align: center; line-height: 1.5; }
+    .ctas { flex-direction: column; width: 100%; }
+    .primaryBtn, .secondaryBtn { width: 100%; }
+  }

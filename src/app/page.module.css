@@ -1,0 +1,14 @@
+.page {
+  --bg-dark: #000000;
+  --bg-section: #0a0a0a;
+  --text-main: #ffffff;
+  --text-muted: #888888;
+  --border-color: #222222;
+
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-geist-sans), 'Helvetica Neue', Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
