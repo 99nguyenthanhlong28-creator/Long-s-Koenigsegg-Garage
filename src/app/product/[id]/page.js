@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import Header from "../../components/Header/header";
 import Footer from "../../components/Footer/footer";
+import SimpleSlider from "../../components/Slider/slider";
 import styles from "./product.module.css";
 
 const cars =[
@@ -38,25 +39,24 @@ export default function ProductDetail() {
   return (
     <div className={styles.page}>
       <Header />
-
       <main className={styles.mainContainer}>
-        {/* Đường dẫn Breadcrumb chuẩn TMĐT */}
         <div className={styles.breadcrumb}>
           <Link href="/">Trang chủ</Link> <span>›</span> <Link href="#">Siêu xe Hypercar</Link> <span>›</span> <span className={styles.current}>{car.name}</span>
         </div>
 
-        {/* Khối Top: Ảnh & Thông tin đặt hàng */}
         <div className={styles.productTop}>
-          
-          {/* Cột trái: Ảnh sản phẩm */}
           <div className={styles.imageGallery}>
-            <img src={car.img} alt={car.name} />
+            <SimpleSlider 
+              images={[
+                car.img,
+                "https://images.unsplash.com/photo-1614200179396-2bdb77ebf81b?q=80&w=1000",
+                "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80&w=1000"
+              ]} 
+            />
           </div>
 
-          {/* Cột phải: Giá, Khuyến mãi & Nút mua */}
           <div className={styles.productInfo}>
             <h1 className={styles.carName}>{car.name}</h1>
-            
             <div className={styles.priceRow}>
               <span className={styles.price}>{car.price}</span>
               {car.remain > 0 ? (
@@ -66,7 +66,6 @@ export default function ProductDetail() {
               )}
             </div>
 
-            {/* Box Khuyến mãi y hệt DMX nhưng mạ Vàng */}
             <div className={styles.promoBox}>
               <div className={styles.promoHeader}>🎁 Ưu đãi độc quyền khi đặt trước</div>
               <ul className={styles.promoList}>
@@ -77,7 +76,6 @@ export default function ProductDetail() {
               </ul>
             </div>
 
-            {/* Nút bấm chốt đơn đặc trưng DMX chia 2 dòng */}
             <button className={styles.buyBtn} disabled={car.remain === 0}>
               {car.remain > 0 ? (
                 <>
@@ -92,7 +90,6 @@ export default function ProductDetail() {
               )}
             </button>
             
-            {/* Nếu còn hàng, thêm nút Trả góp */}
             {car.remain > 0 && (
               <div className={styles.installmentRow}>
                 <button className={styles.installBtn}>
@@ -106,7 +103,6 @@ export default function ProductDetail() {
               </div>
             )}
 
-            {/* Chính sách bảo hành */}
             <div className={styles.supportInfo}>
               <p>📞 Tổng đài VIP: <strong>1800.KGG (Miễn phí)</strong></p>
               <p>🛡️ Bảo hành chính hãng toàn cầu, chuyên gia bay đến tận nơi</p>
@@ -115,10 +111,7 @@ export default function ProductDetail() {
           </div>
         </div>
 
-        {/* Khối Bottom: Bài viết mô tả & Thông số kỹ thuật */}
         <div className={styles.productBottom}>
-          
-          {/* Cột trái: Bài viết chuẩn DMX */}
           <div className={styles.articleSection}>
             <h2>Đặc điểm nổi bật của {car.name}</h2>
             <img src={car.img} alt="Detail" className={styles.articleImg}/>
@@ -132,7 +125,6 @@ export default function ProductDetail() {
             <button className={styles.readMoreBtn}>Đọc thêm bài viết ▼</button>
           </div>
 
-          {/* Cột phải: Bảng thông số (Kẻ sọc Zebra) */}
           <div className={styles.specsSection}>
             <h2>Thông số kỹ thuật</h2>
             <ul className={styles.specsList}>
@@ -173,7 +165,6 @@ export default function ProductDetail() {
           </div>
         </div>
       </main>
-
       <Footer />
     </div>
   );

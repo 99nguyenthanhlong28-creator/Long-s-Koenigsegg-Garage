@@ -1,106 +1,38 @@
-/* Giao diện Luxury DMX: Nền đen, Viền xám, Chữ Trắng/Vàng Gold */
-.page { 
-  background-color: #050505; 
-  color: #fff; 
-  min-height: 100vh; 
-  font-family: Arial, sans-serif; 
-}
-.mainContainer { 
-  max-width: 1200px; 
-  margin: 0 auto; 
-  padding: 120px 20px 60px; /* Thụt xuống để né Header */
-}
-
-/* LỖI 404 */
+.page { background-color: #050505; color: #fff; min-height: 100vh; font-family: Arial, sans-serif; }
+.mainContainer { max-width: 1200px; margin: 0 auto; padding: 120px 20px 60px; }
 .notFound { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; }
 .notFound a { border: 1px solid #fff; padding: 12px 24px; color: #fff; text-decoration: none; border-radius: 4px; transition: 0.3s; }
 .notFound a:hover { background: #fff; color: #000; }
-
-/* BREADCRUMB (Đường dẫn) */
-.breadcrumb { 
-  display: flex; 
-  gap: 8px; 
-  font-size: 14px; 
-  margin-bottom: 24px; 
-  color: #666; 
-}
+.breadcrumb { display: flex; gap: 8px; font-size: 14px; margin-bottom: 24px; color: #666; }
 .breadcrumb a { color: #aaa; text-decoration: none; transition: 0.2s;}
-.breadcrumb a:hover { color: #d4af37; } /* Màu vàng Luxury */
+.breadcrumb a:hover { color: #d4af37; }
 .current { color: #fff; }
-
-/* TOP SECTION: ẢNH & CHỐT ĐƠN */
 .productTop { display: flex; gap: 40px; margin-bottom: 60px; }
-
-/* Box Ảnh */
-.imageGallery { 
-  flex: 6; 
-  background: #0a0a0a; 
-  border-radius: 8px; 
-  border: 1px solid #222; 
-  overflow: hidden; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  padding: 20px;
-}
-.imageGallery img { width: 100%; height: auto; object-fit: contain; }
-
-/* Box Thông tin bên phải */
+.imageGallery { flex: 6; background: #0a0a0a; border-radius: 8px; border: 1px solid #222; padding: 40px 20px 20px 20px; min-width: 0; display: block; }
 .productInfo { flex: 4; display: flex; flex-direction: column; }
 .carName { font-size: 28px; font-weight: 600; margin: 0 0 16px; text-transform: uppercase; letter-spacing: 2px;}
-
 .priceRow { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
-.price { font-size: 36px; color: #d4af37; font-weight: bold; } /* Giá Vàng Gold */
+.price { font-size: 36px; color: #d4af37; font-weight: bold; }
 .badgeRemain { padding: 4px 12px; background: rgba(212, 175, 55, 0.1); border: 1px solid #d4af37; color: #d4af37; border-radius: 4px; font-size: 12px; font-weight: bold;}
 .badgeSold { padding: 4px 12px; background: rgba(255, 59, 48, 0.1); border: 1px solid #ff3b30; color: #ff3b30; border-radius: 4px; font-size: 12px; font-weight: bold;}
-
-/* Box Khuyến Mãi y hệt DMX */
 .promoBox { border: 1px solid #333; border-radius: 8px; margin-bottom: 24px; overflow: hidden; background: #0a0a0a;}
 .promoHeader { background: linear-gradient(90deg, #1a1a1a 0%, #000 100%); padding: 12px 16px; font-weight: bold; font-size: 14px; border-bottom: 1px solid #333; color: #d4af37; text-transform: uppercase;}
 .promoList { list-style: none; padding: 16px; margin: 0; display: flex; flex-direction: column; gap: 12px; }
 .promoList li { position: relative; padding-left: 20px; font-size: 13px; color: #ccc; line-height: 1.5; }
 .promoList li::before { content: '✓'; position: absolute; left: 0; top: 0; color: #d4af37; font-weight: bold;}
-
-/* NÚT MUA HÀNG THẦN THÁNH */
-.buyBtn { 
-  background: linear-gradient(180deg, #d4af37 0%, #aa7700 100%); 
-  border: none; 
-  border-radius: 8px; 
-  padding: 16px; 
-  color: #fff; 
-  cursor: pointer; 
-  text-align: center; 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center; 
-  gap: 6px; 
-  transition: opacity 0.3s; 
-  margin-bottom: 12px; 
-}
+.buyBtn { background: linear-gradient(180deg, #d4af37 0%, #aa7700 100%); border: none; border-radius: 8px; padding: 16px; color: #fff; cursor: pointer; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; transition: opacity 0.3s; margin-bottom: 12px; }
 .buyBtn:hover:not(:disabled) { opacity: 0.85; }
 .buyBtn:disabled { background: #222; color: #555; cursor: not-allowed; }
 .buyBtn strong { font-size: 20px; text-transform: uppercase; letter-spacing: 1px; }
 .buyBtn span { font-size: 13px; font-weight: 300; }
-
-/* Nút Trả góp */
 .installmentRow { display: flex; gap: 12px; margin-bottom: 24px; }
-.installBtn {
-  flex: 1; background: #111; border: 1px solid #333; border-radius: 8px; padding: 12px; color: #fff; cursor: pointer; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; transition: 0.3s;
-}
+.installBtn { flex: 1; background: #111; border: 1px solid #333; border-radius: 8px; padding: 12px; color: #fff; cursor: pointer; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; transition: 0.3s; }
 .installBtn:hover { border-color: #d4af37; }
 .installBtn strong { font-size: 12px; color: #d4af37; }
 .installBtn span { font-size: 11px; color: #888; }
-
-/* Thông tin tổng đài */
 .supportInfo { font-size: 13px; color: #888; border-top: 1px solid #222; padding-top: 16px; display: flex; flex-direction: column; gap: 10px;}
 .supportInfo strong { color: #fff; }
-
-
-/* BOTTOM SECTION: BÀI VIẾT & THÔNG SỐ */
 .productBottom { display: flex; gap: 40px; }
-
-/* Bài viết */
 .articleSection { flex: 6; }
 .articleSection h2 { font-size: 22px; margin-bottom: 20px; font-weight: 500; }
 .articleSection p { font-size: 15px; color: #aaa; line-height: 1.8; margin-bottom: 20px; }
@@ -108,38 +40,16 @@
 .articleSection h3 { font-size: 18px; margin: 24px 0 16px; color: #ddd; }
 .readMoreBtn { width: 100%; background: transparent; border: 1px solid #333; color: #d4af37; padding: 12px; border-radius: 8px; cursor: pointer; transition: 0.3s; }
 .readMoreBtn:hover { background: #111; }
-
-/* Bảng Thông số kỹ thuật (Cực chuẩn DMX) */
 .specsSection { flex: 4; }
 .specsSection h2 { font-size: 22px; margin-bottom: 20px; font-weight: 500; }
-.specsList { 
-  list-style: none; padding: 0; margin: 0; 
-  border: 1px solid #222; border-radius: 8px; overflow: hidden; 
-}
+.specsList { list-style: none; padding: 0; margin: 0; border: 1px solid #222; border-radius: 8px; overflow: hidden; }
 .specsList li { display: flex; padding: 16px; font-size: 14px; border-bottom: 1px solid #222; }
 .specsList li:last-child { border-bottom: none; }
-.specsList li:nth-child(odd) { background-color: #0a0a0a; } /* Sọc Zebra đậm */
-.specsList li:nth-child(even) { background-color: #111; }    /* Sọc Zebra nhạt */
+.specsList li:nth-child(odd) { background-color: #0a0a0a; }
+.specsList li:nth-child(even) { background-color: #111; }
 .specsList span { flex: 4; color: #888; }
 .specsList strong { flex: 6; color: #fff; text-align: right; font-weight: normal;}
-
-.viewMoreSpecs { 
-  width: 100%; padding: 14px; background: transparent; border: 1px solid #d4af37; 
-  color: #d4af37; border-radius: 8px; margin-top: 16px; cursor: pointer; transition: 0.3s; font-weight: bold;
-}
+.viewMoreSpecs { width: 100%; padding: 14px; background: transparent; border: 1px solid #d4af37; color: #d4af37; border-radius: 8px; margin-top: 16px; cursor: pointer; transition: 0.3s; font-weight: bold; }
 .viewMoreSpecs:hover { background: #d4af37; color: #000; }
-
-
-/* RESPONSIVE */
-@media(max-width: 900px) {
-  .productTop, .productBottom { flex-direction: column; }
-  .imageGallery { padding: 40px 20px; }
-  .carName { font-size: 24px; }
-  .price { font-size: 28px; }
-}
-
-@media(max-width: 600px) {
-  .installmentRow { flex-direction: column; }
-  .specsList li { flex-direction: column; gap: 8px; }
-  .specsList strong { text-align: left; color: #d4af37; }
-}
+@media(max-width: 900px) { .productTop, .productBottom { flex-direction: column; } .imageGallery { padding: 40px 20px; } .carName { font-size: 24px; } .price { font-size: 28px; } }
+@media(max-width: 600px) { .installmentRow { flex-direction: column; } .specsList li { flex-direction: column; gap: 8px; } .specsList strong { text-align: left; color: #d4af37; } }
